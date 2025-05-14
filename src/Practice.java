@@ -9,10 +9,13 @@ public class Practice {
         head.next.next.next = new ListNode(32);
         head.next.next.next.next = new ListNode(23);
 
-        System.out.println(head.data);
-        System.out.println(head.next.data);
+        System.out.println();
+        System.out.println();
 
         ListNode current = head;
+
+        head = removeSecondNode(head);
+
 
         while (current != null){
             System.out.println(current.data);
@@ -20,5 +23,27 @@ public class Practice {
             current = current.next;
         }
 
+        // System.out.println(total);
+
+    }
+
+    public static int mystery(ListNode head){
+        if (head == null) return -1;
+
+        ListNode current = head;
+
+        while (current.next != null){
+            current = current.next;
+        }
+
+        return current.data;
+    }
+
+    public static ListNode removeSecondNode(ListNode head){
+        //head.next = head.next.next;
+
+        ListNode current = head.next;
+        head.next = current.next;
+        return head;
     }
 }
