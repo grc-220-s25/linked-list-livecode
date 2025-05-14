@@ -11,14 +11,46 @@ public class Practice {
         head.next.next = new ListNode(32);
         head.next.next.next = new ListNode(23);
 
-        // System.out.println(head);
+        
+
+        // int result = tailData(head);
+        // System.out.println(result);
+
+        head = removeSecondNode(head);
 
         ListNode current = head;
-        int total = 0;
         while(current != null) {
-            total += current.data;
+            System.out.println(current.data);
             current = current.next;
         }
-        System.out.println(total);
+
+        // System.out.println(head);
+
+    //     ListNode current = head;
+    //     int total = 0;
+    //     while(current != null) {
+    //         total += current.data;
+    //         current = current.next;
+    //     }
+    //     System.out.println(total);
+    // }
+    }
+
+    public static int tailData(ListNode head) {
+        if(head == null) return -1;
+
+        ListNode current = head;
+
+        while(current.next != null) {
+            current = current.next;
+        }
+        return current.data;
+    }
+    public static ListNode removeSecondNode(ListNode head) {
+
+        head.next = head.next.next;
+
+        return head;
+
     }
 }
